@@ -58,7 +58,7 @@ module.exports = {
           title: req.body.title,
           quantity: 1,
           unit_price: parseFloat(req.body.price),
-          description: "Checkout PRO mercadopago",
+          description: "Dispositivo móvil de Tienda e-commerce",
         },
       ],
       external_reference: "nicolas.cabrera.lettiere@gmail.com",
