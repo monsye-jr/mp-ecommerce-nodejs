@@ -64,7 +64,7 @@ app.get('/detail/ckeckout/failure', function (req, res) {
 //    res.status(200).send("OK");
 //});
 
-app.post('/notifications', bodyParser.raw({type: 'application/json'}), (request, response) => {
+app.post('/notifications',  (request, response) => {
     const event = request.body;
 
     console.log("*************  [  -EVENT-  ]  ***************");
