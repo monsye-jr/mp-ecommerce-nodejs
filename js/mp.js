@@ -1,4 +1,5 @@
 const mercadopago = require("mercadopago");
+const path = require("path");
 
 mercadopago.configure({
   integrator_id: "dev_24c65fb163bf11ea96500242ac130004",
@@ -18,10 +19,9 @@ module.exports = {
     }
 
     console.log("base_url", base_url);
-    console.log("req.body.img", req.body.img);
 
     // Modify item picture URL to correctly display it in mercadopago UI.
-
+    const product_img = base_url + req.body.img.replace('.', '');
     // Preferencia de compra !!
     const preference = {
       payer: {
@@ -54,7 +54,7 @@ module.exports = {
       items: [
         {
           id: "1234",
-          picture_url: req.body.img,
+          picture_url: product_img,
           title: req.body.title,
           quantity: 1,
           unit_price: parseFloat(req.body.price),
