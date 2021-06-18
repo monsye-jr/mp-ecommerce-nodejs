@@ -7,7 +7,20 @@ mercadopago.configure({
 });
 
 module.exports = {
-  procesar_pago: function (items, req, res) {
+  ckeckout: function (items, req, res) {
+    let base_url;
+
+    // Use localhost for testing and Heroku for prod
+    if (process.env.NODE_ENV === "dev") {
+      base_url = "localhost:3000";
+    } else {
+      base_url = "https://monsye-jr-mp-ecommerce-nodejs.herokuapp.com";
+    }
+
+    console.log("base_url", base_url);
+
+    // Modify item picture URL to correctly display it in mercadopago UI.
+
     // Preferencia de compra !!
     const preference = {
       payer: {
@@ -47,14 +60,14 @@ module.exports = {
           description: "Checkout PRO mercadopago",
         },
       ],
+      external_reference: "nicolas.cabrera.lettiere@gmail.com",
       back_urls: {
-        success: "localhost:3000/detail/procesar-pago/success",
-        pending: "localhost:3000/detail/procesar-pago/pending",
-        failure: "localhost:3000/detail/procesar-pago/failure",
+        success: base_url + "/detail/ckeckout/success",
+        pending: base_url + "/detail/ckeckout/pending",
+        failure: base_url + "/detail/ckeckout/failure",
       },
       auto_return: "approved",
-      notification_url: "localhost:3000/web-hooks",
-      external_reference: "nicolas.cabrera.lettiere@gmail.com",
+      notification_url: base_url + "/notifications",
     };
 
     mercadopago.preferences

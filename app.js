@@ -24,23 +24,23 @@ app.get('/detail', function (req, res) {
     res.render('detail', req.query);
 });
 
-app.post('/detail/procesar-pago', function (req, res) {
-    mp.procesar_pago(req.body, req, res);
+app.post('/detail/ckeckout', function (req, res) {
+    mp.ckeckout(req.body, req, res);
 });
 
-app.get('/detail/procesar-pago/success', function (req, res) {
+app.get('/detail/ckeckout/success', function (req, res) {
     res.render('success', req.query);
 });
 
-app.get('/detail/procesar-pago/pending', function (req, res) {
+app.get('/detail/ckeckout/pending', function (req, res) {
     res.render('pending', req.query);
 });
 
-app.get('/detail/procesar-pago/failure', function (req, res) {
+app.get('/detail/ckeckout/failure', function (req, res) {
     res.render('failure', req.query);
 });
 
-app.get("/web-hooks", function (req, res) {
+app.get("/notifications", function (req, res) {
     console.log(req.body);
     res.status(200).send("OK");
 });
