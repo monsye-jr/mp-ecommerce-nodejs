@@ -82,4 +82,19 @@ module.exports = {
         console.error("ERROR: .create(preference)", error);
       });
   },
+  async notification(req, res) {
+    if (req.method === "POST") {
+      // data
+      let body = "";
+      req.on("data", chunk => {
+        body += chunk.toString();
+      });
+      // ok
+      req.on("end", () => {
+        console.log("----->", body, "Webhook Success");
+        res.end("ok");
+      });
+    }
+    return res.status(201);
+  },
 };

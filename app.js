@@ -50,31 +50,19 @@ app.get('/detail/ckeckout/failure', function (req, res) {
     res.render('failure', req.query);
 });
 
-//app.post("/notifications", function (req, res) {
-//    console.log("************* [ WebHook ]  ***************");
-//    console.log("************* [ req.body ] ***************");
-//    console.log(req.body);
-//    console.log("************* [ res.body ] ***************");
-//    console.log(res.body);
-//    console.log("************* [ req.query ] ***************");
-//    console.log(req.query);
-//    console.log("************* [ res.query ] ***************");
-//    console.log(res.query);
+//app.post('/notifications',  (request, response) => {
+//    const event = request.query;
+//
+//    console.log("*************  [  -EVENT-  ]  ***************");
+//    console.log(event);
 //    console.log("*************  [  -END-  ]  ***************");
-//    res.status(200).send("OK");
+//    // Handle the event
+//  
+//    // Return a response to acknowledge receipt of the event
+//    //response.json({received: true});
+//    response.status(200).send("OK");
 //});
 
-app.post('/notifications',  (request, response) => {
-    const event = request.query;
-
-    console.log("*************  [  -EVENT-  ]  ***************");
-    console.log(event);
-    console.log("*************  [  -END-  ]  ***************");
-    // Handle the event
-  
-    // Return a response to acknowledge receipt of the event
-    //response.json({received: true});
-    response.status(200).send("OK");
-  });
+app.post("/notifications", (req, res) => mp.notification(req, res));
 
 app.listen(port);
