@@ -41,7 +41,9 @@ app.get('/detail/ckeckout/failure', function (req, res) {
 });
 
 app.post("/notifications", function (req, res) {
+    console.log("************* [ Webhooks ] ***************");
     console.log(req.body);
+    console.log("*************  [  -END-  ]  ***************");
     res.status(200).send("OK");
 });
 
