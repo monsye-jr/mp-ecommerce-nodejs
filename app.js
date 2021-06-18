@@ -40,7 +40,7 @@ app.get('/detail/ckeckout/failure', function (req, res) {
     res.render('failure', req.query);
 });
 
-app.post("/notifications/:topic&:id", function (req, res) {
+app.post("/notifications", function (req, res) {
     console.log(req.body);
     res.status(200).send("OK");
 });
