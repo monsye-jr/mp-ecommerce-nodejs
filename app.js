@@ -61,7 +61,7 @@ app.post("/notifications", function (req, res) {
     console.log("************* [ res.query ] ***************");
     console.log(res.query);
     console.log("*************  [  -END-  ]  ***************");
-    res.status(200).send("OK");
+    res.status(201).send("OK");
 });
 
 app.listen(port);
