@@ -18,6 +18,7 @@ module.exports = {
     }
 
     console.log("base_url", base_url);
+    console.log("req.body.img", req.body.img);
 
     // Modify item picture URL to correctly display it in mercadopago UI.
 
@@ -74,10 +75,11 @@ module.exports = {
       .create(preference)
       .then(function (response) {
         global.init_point = response.body.init_point;
+        console.info("RESPONSE: .create(preference)", response);
         res.redirect(global.init_point);
       })
       .catch(function (error) {
-        console.log(error);
+        console.error("ERROR: .create(preference)", error);
       });
   },
 };

@@ -29,6 +29,16 @@ app.post('/detail/ckeckout', function (req, res) {
 });
 
 app.get('/detail/ckeckout/success', function (req, res) {
+    console.log("************* [ success ]  ***************");
+    console.log("************* [ req.body ] ***************");
+    console.log(req.body);
+    console.log("************* [ res.body ] ***************");
+    console.log(res.body);
+    console.log("************* [ req.query ] ***************");
+    console.log(req.query);
+    console.log("************* [ res.query ] ***************");
+    console.log(res.query);
+    console.log("*************  [  -END-  ]  ***************");
     res.render('success', req.query);
 });
 
@@ -41,6 +51,7 @@ app.get('/detail/ckeckout/failure', function (req, res) {
 });
 
 app.post("/notifications", function (req, res) {
+    console.log("************* [ WebHook ]  ***************");
     console.log("************* [ req.body ] ***************");
     console.log(req.body);
     console.log("************* [ res.body ] ***************");
